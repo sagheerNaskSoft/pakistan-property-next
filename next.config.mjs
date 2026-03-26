@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // 👈 YE ADD KARNA MUST HAI
   reactStrictMode: false,
   eslint: {
     ignoreDuringBuilds: true,
