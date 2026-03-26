@@ -1,0 +1,37 @@
+.pdf-export-active .acc-details,
+.pdf-export-active .rows-wrap,
+.pdf-export-active .calculator-detail-section,
+.pdf-export-active .plumbing-card, /* etc... accordions/classes here */
+.pdf-export-active .your-accordion-content-class {
+    display: block !important;
+    max-height: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+}
+
+.pdf-export-active * {
+    transition: none !important;
+    animation: none !important;
+}
+.pdf-export-active .main-container,
+.pdf-export-active .plumbing-card,
+.pdf-export-active .percentage-graph-section,
+.pdf-export-active .calculator-detail-section,
+.pdf-export-active .details-table,
+.pdf-export-active .acc-details,
+.pdf-export-active .rows-wrap,
+.pdf-export-active .your-header-class,
+.pdf-export-active .paper, 
+.pdf-export-active .MuiPaper-root, 
+.pdf-export-active .MuiStack-root, 
+.pdf-export-active .MuiBox-root
+{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.pdf-export-active,
+.pdf-export-active * {
+    background: transparent !important;
+    box-shadow: none !important;
+}

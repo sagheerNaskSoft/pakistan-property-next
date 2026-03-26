@@ -1,0 +1,67 @@
+.call-modal-content {
+    width: 400px;
+    min-height: 374px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* padding: 24px 32px; */
+    padding-bottom: 60px;
+    padding: 12px 12px 32px;
+    outline: none !important;
+}
+
+.call-modal-content:focus,
+.call-modal-content:focus-visible,
+.call-modal-content:focus-within,
+.call-modal-content * {
+    outline: none !important;
+}
+
+.call-modal-close-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.call-modal-close-button button {
+    background: none;
+    border: none;
+}
+
+.call-modal-content h6 {
+    color: var(--Neutral-Colors-Black, #000);
+    text-align: center;
+
+    /* H1 */
+    font-family: "DM Sans";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    margin-top: 12px;
+    /* 115.385% */
+}
+
+.call-modal-content .contact {
+    display: flex;
+    padding: 10px 13px;
+    align-items: center;
+    gap: 12px;
+    width: max-content;
+    /* align-self: stretch; */
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid var(--Grey-Colors-Grey-2, #BBB);
+    background: var(--Glass-morphism, linear-gradient(92deg, rgba(255, 255, 255, 0.70) -8.24%, rgba(255, 255, 255, 0.50) 99.9%));
+    color: var(--Text-Colos-1, #2D2D2D);
+    cursor: pointer;
+    /* H5 (Base) - SB */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 142.857% */
+}

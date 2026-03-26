@@ -1,0 +1,110 @@
+.btn {
+  font-family: "DM Sans";
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Sizes */
+.btn--small {
+  padding: 6px 14px !important;
+  font-size: 14px !important;
+}
+
+/* PRIMARY BUTTON */
+.btn--primary {
+  background-color: #447158 !important;
+  color: white !important;
+
+  /* Button Text/Button Text SB */
+  font-family: "DM Sans" !important;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: 20px !important;
+  /* 142.857% */
+}
+
+.btn--primary.home{
+  width: 120px;
+}
+
+
+.btn--primary.extra-large{
+  height: 50px !important;
+}
+
+.btn--primary:hover {
+  background-color: #2E5640 !important;
+  color: white;
+}
+
+.btn--primary.btn--pressed {
+  background-color: #698B75;
+  color: white;
+}
+
+.btn--primary.btn--disabled {
+  background-color: #E8E8E8;
+  color: #aaa;
+}
+
+/* SECONDARY BUTTON */
+.btn--primary-text {
+  background-color: transparent;
+  border: none;
+  color: var(--Color---Secondary, #698B75) !important;
+  text-align: right !important;
+  outline: none;
+  /* Button Text/Button Text SB */
+  font-family: "DM Sans" !important;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: 20px;
+  /* 142.857% */
+}
+
+.btn--primary-text:focus {
+  outline: none !important;
+  border: none !important;
+  /* optional */
+  box-shadow: none !important;
+  /* remove browser glow */
+}
+
+.radius-8 {
+  border-radius: 8px !important;
+}
+
+.btn--primary-text.btn--hover:hover {
+  text-decoration: underline;
+  color: #2E5640;
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border: 1px solid #2E5640 !important;
+  color: #2E5640 !important;
+}
+
+.btn--secondary.btn--hover:hover {
+  background-color: #2E5640;
+  color: white !important;
+}
+
+.btn--secondary.btn--pressed {
+  background-color: #DCE3DE;
+}
+
+.btn--secondary.btn--disabled {
+  border-color: #E8E8E8;
+  color: #aaa;
+}

@@ -1,0 +1,579 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+:root {
+
+
+    /* Font Family */
+
+    --font-family: "DM Sans";
+    --font-family-2: "Urbanist", sans-serif;
+    /* Primary Colors */
+    --primary-color: #447158;
+
+
+    /*Hover Button Color*/
+
+    --btn-hover: #025625;
+    --btn-primary-hover: #1B4E29;
+
+    /* Secondary Colors */
+    --secondary-color-1: #698B75;
+    --secondary-color-2: #DCE3DE;
+    --secondary-color-3: #F9F9F9;
+    --secondary-color-4: #F0FDF4;
+    --secondary-color-5: #EFF9F4;
+    --secondary-color-6: #EBF2ED;
+
+    /* Input field / Text Colors */
+    --text-color-1: #2D2D2D;
+    --text-color-2: #555555;
+    --text-color-3: #D9D9D9;
+    --text-color-4: #A9B0B8;
+    --text-color-5: #444545;
+
+    /* Grey Tones */
+    --grey-tone-1: #737678;
+    --grey-tone-2: #BBBBBB;
+    --grey-tone-3: #DCDCDC;
+    --grey-tone-4: #F4F4F4;
+    --grey-tone-5: #8E8E8E;
+    --grey-tone-6: #4F4F4F;
+    --grey-tone-7: #6C6C6C;
+    --grey-tone-8: #ECECEC;
+
+    /* Accent Colors */
+    --accent-muted-purple: #CABDFF;
+    --accent-warm-orange: #F9C6AF;
+    --accent-slate-green: #B7E4C7;
+
+    /* State Colors */
+    --state-success: #27AE60;
+    --state-warning: #E2B93B;
+    --state-error: #C94444;
+
+    /* Neutral Colors */
+    --neutral-white: #FFFFFF;
+    --neutral-black: #000000;
+
+    /* Box Shadow */
+
+    --box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+
+
+    /* Input Media Query */
+
+    --input-height-md: 42px;
+
+}
+
+
+
+/* ///////////////////////////////////////////////////////// [ INPUT FIELD ] //////////////////////////////////////////////////// */
+
+
+.range-input-field {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid var(--grey-tone-2);
+    background: white;
+    /* box-shadow: 0 -1px 0 0 #BDBDBD inset; */
+    position: relative;
+    cursor: pointer;
+    /* transition: all 0.1s linear; */
+}
+
+
+.range-input-field.simple-design {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid var(--grey-tone-2);
+    background: white;
+    /* box-shadow: 0 -1px 0 0 #BDBDBD inset; */
+    /* position: relative; */
+    cursor: pointer;
+    /* transition: all 0.1s linear; */
+}
+
+.range-input-field.simple-design.simple-design-new {
+    width: 100%;
+    outline: none;
+    background: none;
+    height: 40px;
+    border: 1px solid var(--grey-tone-1);
+    border-radius: 4px;
+    padding: 10px;
+    color: var(--Grey-Colors-Color---Grey-1, #737678);
+    font-family: "Urbanist", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.range-input-field.simple-design.focus {
+    border: 1px solid var(--secondary-color-1) !important;
+}
+
+.range-input-field.simple-design.focus .input-value {
+    color: var(--secondary-color-1);
+    width: 90%;
+}
+
+.range-input-field .parent-box .modified-value {
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    opacity: 1;
+    width: fit-content;
+}
+
+
+.range-input-field.simple-design.focus label {
+    position: unset;
+    background-color: white;
+    height: fit-content !important;
+    padding: 0 5px;
+}
+
+.range-input-field.simple-design .new-parent {
+    padding: 10px 20px;
+    align-items: center !important;
+}
+
+
+.simple-design-label {
+    color: var(--text-color-1);
+    font-family: "DM Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.simple-design-label.modified {
+    color: var(--text-color-1);
+    font-family: "DM Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    position: absolute;
+    left: 8px;
+    top: -9px;
+    z-index: 1;
+    padding: 0 5px;
+    color: var(--primary-color);
+}
+
+.range-input-field.simple-design .value-box .value-label-box label {
+    top: 1px !important;
+    background-color: transparent !important;
+    left: 5px !important;
+}
+
+.range-input-field.simple-design-new label {
+    /* bottom:9px !important; */
+    position: unset !important;
+}
+
+.range-input-field.simple-design-new.focus label {
+    background: transparent !important;
+    background-color: transparent !important;
+    font-size: 12px !important;
+    padding: 0 !important;
+}
+
+.range-input-field.simple-design-new.focus svg rect {
+    background: transparent !important;
+    background-color: transparent !important;
+    fill: transparent !important;
+}
+
+.range-input-field.simple-design-new .parent-box {
+    padding: 0 !important;
+    align-items: center;
+}
+
+.range-input-field.simple-design-new .area-range {
+    top: 52px !important;
+    left: 0 !important;
+    width: 100%
+}
+
+.range-input-field.simple-design-new .value-label-box {
+    padding: 0 4px !important;
+}
+
+
+.range-input-field .parent-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+    align-items: end;
+    padding: 14px 12px 4px 12px;
+    gap: 4px;
+}
+
+.range-input-field.focus {
+    border-bottom: 2px solid var(--primary-color) !important;
+}
+
+.range-input-field label {
+    color: var(--grey-tone-1);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    position: absolute;
+    /* transition: 0.2s ease; */
+    bottom: 6px;
+    left: 12px;
+    cursor: pointer;
+}
+
+.range-input-field.focus label {
+    top: 4px;
+    color: var(--primary-color);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.range-input-field .input-value {
+    opacity: 0;
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    width: -webkit-fill-available;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.range-input-field.focus .input-value {
+
+    opacity: 1;
+}
+
+.range-input-field .area-range {
+    background-color: white;
+    width: 292px;
+    padding: 12px;
+    border-radius: 4px;
+    position: absolute;
+    top: 52px;
+    display: grid;
+    gap: 16px;
+    z-index: 999;
+    box-shadow: var(--box-shadow);
+}
+
+.range-input-field .area-range.modified {
+    padding: 8px 12px;
+    gap: 0;
+}
+
+.range-input-field .area-range .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.range-input-field .area-range .top .heading,
+.range-input-field .area-range .top .area {
+    color: var(--text-color-5);
+    font-family: var(--font-family-2);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.range-input-field .area-range .MuiSlider-thumb {
+    border: 2px solid white !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.range-input-field .area-range .MuiSlider-rail {
+    background-color: white !important;
+    border: 0.5px solid var(--primary-color) !important;
+    height: 6px !important;
+}
+
+.range-input-field .area-range .top .area {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.range-input-field .area-range .size-dropdown {
+    position: absolute;
+    top: 38px;
+    right: 0;
+    width: 160px;
+    background-color: white;
+    padding: 8px 0;
+    border-radius: 4px;
+    z-index: 3;
+    box-shadow: var(--box-shadow);
+}
+
+.range-input-field .area-range .size-dropdown .size {
+    padding: 6px 8px 6px 18px;
+    color: var(--grey-tone-6);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    /* transition: all 0.2 linear; */
+    cursor: pointer;
+}
+
+.range-input-field .area-range .size-dropdown .size:hover {
+    background-color: var(--grey-tone-3);
+}
+
+.range-input-field .area-range .slider {
+    color: var(--primary-color) !important;
+    width: 96%;
+    margin: 0 2%;
+    padding: 0 !important;
+}
+
+.range-input-field .value-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.range-input-field .value-label-box {
+    width: 48%;
+    height: 38px;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+    padding: 0 18px 0px 9px;
+    border: 1px solid var(--grey-tone-2);
+    border-bottom: 2px solid var(--grey-tone-2);
+    background: white;
+    position: relative;
+    cursor: pointer;
+    /* transition: all 0.1s linear; */
+    overflow: hidden;
+}
+
+.range-input-field .single-value-label-box {
+    width: 100%;
+    height: 38px;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+    padding: 0 9px 0px 9px;
+    border: 1px solid var(--grey-tone-2);
+    border-bottom: 2px solid var(--grey-tone-2);
+    background: white;
+    position: relative;
+    cursor: pointer;
+    /* transition: all 0.1s linear; */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.range-input-field .value-label-box.focus {
+    border-bottom: 2px solid var(--primary-color) !important;
+    cursor: pointer;
+}
+
+.range-input-field .percentage-box {
+    color: var(--grey-tone-1);
+    width: 40px;
+    border-right: 1px solid var(--grey-tone-2);
+    margin-right: 10px;
+    font-family: var(--font-family-2);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    height: 100%;
+    background-color: var(--grey-tone-4);
+    padding: 0 9px;
+}
+
+.range-input-field .value-box .value-label-box label {
+    color: var(--grey-tone-1);
+    font-family: var(--font-family-2);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 8px;
+    left: 9px;
+}
+
+.range-input-field .value-label-box.focus label {
+    font-size: 10px;
+    color: var(--primary-color);
+    top: -6px;
+}
+
+.range-input-field .value-box .value {
+    height: 100%;
+    width: 100%;
+    color: black;
+    font-family: var(--font-family-2);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    display: flex;
+    padding-top: 14px;
+    align-items: end;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    outline: none;
+}
+
+.range-input-field .single-value-label-box .value {
+    padding-top: 0 !important;
+}
+
+.range-input-field .value-box .value::-webkit-inner-spin-button {
+    display: none;
+}
+
+.range-input-field .bottom .value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.range-input-field .bottom .value.modified {
+    padding: 0 10px;
+}
+
+.range-input-field .bottom .value span {
+    color: var(--text-color-5);
+    font-family: var(--font-family-2);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.range-input-field .error {
+    position: absolute;
+    color: var(--state-error);
+    font-family: var(--font-family);
+    font-size: 10.4px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17.68px;
+    left: 3px;
+}
+
+.range-input-field.simple-design .error {
+    bottom: -19px;
+}
+
+.range-input-field .select.error-input {
+    border-color: var(--state-error) !important;
+}
+
+.range-input-field .area-range .value-box .modified-number-input {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid var(--grey-tone-2);
+    background: linear-gradient(92deg, rgba(255, 255, 255, 0.70) -8.24%, rgba(255, 255, 255, 0.50) 99.9%);
+    height: 32px;
+    padding: 10px 12px;
+    color: var(--grey-tone-1);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.range-input-field .area-range .value-box .modified-number-input::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+
+/* //////////////////////////////////////////// [ Media Query ] /////////////////////////////////////// */
+
+
+@media (max-width:576px) {
+    .range-input-field .area-range {
+        width: 100%;
+    }
+
+    .range-input-field.simple-design.simple-design-new {
+        height: 50px !important;
+        border-radius: 4px 4px 0 0 !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .range-input-field.simple-design.simple-design-new.focus {
+        border-color: var(--grey-tone-1) !important;
+        border-bottom: 2px solid var(--primary-color) !important;
+    }
+
+    .range-input-field .input-value {
+        font-size: 16px !important;
+    }
+
+    .range-input-field label, .range-input-field.simple-design-new.focus label {
+        font-size: 14px !important;
+    }
+
+    .range-input-field.focus label {
+        font-size: 10px !important;
+    }
+}

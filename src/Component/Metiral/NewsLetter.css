@@ -1,0 +1,173 @@
+:root {
+    --font-family: "DM Sans";
+    /* Primary Colors */
+    --primary-color: #447158;
+    /* Secondary Colors */
+    --secondary-color-1: #698B75;
+    --secondary-color-2: #DCE3DE;
+    --secondary-color-3: #F9F9F9;
+    --secondary-color-6: #E8F7EE;
+    /* Input field / Text Colors */
+    --text-color-1: #2D2D2D;
+    --text-color-2: #555555;
+    --text-color-3: #D9D9D9;
+    --text-color-4: #A9B0B8;
+    /* Grey Tones */
+    --grey-tone-1: #737678;
+    --grey-tone-2: #BBBBBB;
+    --grey-tone-3: #DCDCDC;
+    --grey-tone-4: #F4F4F4;
+    /* Accent Colors */
+    --accent-muted-purple: #CABDFF;
+    --accent-warm-orange: #F9C6AF;
+    --accent-slate-green: #B7E4C7;
+    /* State Colors */
+    --state-success: #27AE60;
+    --state-warning: #E2B93B;
+    --state-error: #C94444;
+
+    /* Neutral Colors */
+    --neutral-white: #FFFFFF;
+    --neutral-black: #000000;
+
+
+    /* media query font size */
+    --heading-1-md: 22px;
+    --heading-2-md: 14px;
+    --para-md: 14px;
+    --heading-1-sm: 20px;
+    --para-sm: 12px;
+}
+
+.spinner-border {
+    width: 18px;
+    height: 18px;
+}
+
+
+.newsletter-modal {
+    width: 100%;
+    max-width: 784px;
+    height: 430px;
+    /* border-radius: 8px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), linear-gradient(96deg, rgba(255, 255, 255, 0.70) 0.34%, rgba(255, 255, 255, 0.50) 98.94%);
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(7.5px); */
+    padding: 42px 44px;
+    position: relative;
+}
+
+.newsletter-modal .close-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.newsletter-modal .img {
+    width: 100%;
+    height: 100%;
+}
+
+.newsletter-modal .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.newsletter-modal .text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.newsletter-modal .text-box .title {
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 34px;
+    margin-bottom: 12px;
+}
+
+.newsletter-modal .text-box .description {
+    color: var(--text-color-2);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 36px;
+}
+
+.newsletter-modal .text-box .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+
+}
+
+.newsletter-modal .text-box .input-box .input{
+    width: 100%;
+    position: relative;
+}
+
+
+.newsletter-modal .text-box .input-box input {
+    outline: none !important;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    padding: 11px 0 11px 16px;
+    align-items: center;
+    color: var(--grey-tone-1);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    border-radius: 4px;
+    border: 1px solid var(--grey-tone-1);
+    background: transparent;
+}
+
+.newsletter-modal .text-box .input-box input::placeholder {
+    color: var(--grey-tone-1);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.newsletter-modal .text-box .input-box input.focus {
+    border-color: var(--secondary-color-1);
+    color: var(--secondary-color-1);
+    border-radius: 4px;
+    border: 1px solid var(--Grey-Colors-Grey-1, #737678);
+    background: #FFF;
+}
+
+.newsletter-modal .text-box .input-box input:hover {
+    border-color: black;
+}
+
+.newsletter-modal .text-box .input-box input.focus:hover {
+    border-color: var(--secondary-color-1);
+}
+
+.error-input {
+    border: 1px solid var(--state-error) !important;
+    color: var(--state-error) !important;
+}
+
+.error-text {
+    color: var(--state-error);
+    font-size: 10px;
+    position: absolute;
+    top: 40px;
+}

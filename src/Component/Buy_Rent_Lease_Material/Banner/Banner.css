@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+:root {
+
+
+    /* Font Family */
+
+    --font-family: "DM Sans";
+    --font-family-2: "Urbanist", sans-serif;
+    /* Primary Colors */
+    --primary-color: #447158;
+
+
+    /*Hover Button Color*/
+
+    --btn-hover: #025625;
+    --btn-primary-hover: #1B4E29;
+
+    /* Secondary Colors */
+    --secondary-color-1: #698B75;
+    --secondary-color-2: #DCE3DE;
+    --secondary-color-3: #F9F9F9;
+    --secondary-color-4: #F0FDF4;
+    --secondary-color-5: #EFF9F4;
+    --secondary-color-6: #EBF2ED;
+
+    /* Input field / Text Colors */
+    --text-color-1: #2D2D2D;
+    --text-color-2: #555555;
+    --text-color-3: #D9D9D9;
+    --text-color-4: #A9B0B8;
+    --text-color-5: #444545;
+
+    /* Grey Tones */
+    --grey-tone-1: #737678;
+    --grey-tone-2: #BBBBBB;
+    --grey-tone-3: #DCDCDC;
+    --grey-tone-4: #F4F4F4;
+    --grey-tone-5: #8E8E8E;
+    --grey-tone-6: #4F4F4F;
+    --grey-tone-7: #6C6C6C;
+    --grey-tone-8: #ECECEC;
+
+    /* Accent Colors */
+    --accent-muted-purple: #CABDFF;
+    --accent-warm-orange: #F9C6AF;
+    --accent-slate-green: #B7E4C7;
+
+    /* State Colors */
+    --state-success: #27AE60;
+    --state-warning: #E2B93B;
+    --state-error: #C94444;
+
+    /* Neutral Colors */
+    --neutral-white: #FFFFFF;
+    --neutral-black: #000000;
+
+    /* Box Shadow */
+
+    --box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+
+
+    /* Media Query Font Size */
+
+    --banner-heading-md: 22px;
+    --banner-para-md: 14px;
+    --banner-heading-sm: 20px;
+    --banner-para-sm: 14px
+}
+
+/* ////////////////////////////////////////////////// [ Banner ] ///////////////////////////////////////////// */
+
+.buy_rent_lease {
+    width: 100%;
+    height: fit-content;
+    padding-top: 16px;
+}
+
+.buy_rent_lease .bread-crumb {
+    color: var(--text-color-2);
+    font-family: var(--font-family-2);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    display: flex;
+    gap: 4px;
+}
+
+.buy_rent_lease .bread-crumb span {
+    color: var(--primary-color);
+}
+
+.buy_rent_lease .text-area {
+    display: grid;
+    gap: 32px;
+    padding: 106px 0;
+}
+
+.buy_rent_lease .text-area .heading {
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.buy_rent_lease .text-area .para {
+    color: var(--grey-tone-1);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.buy_rent_lease .text-area .input-area-box {
+    display: flex;
+    padding: 16px 24px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid var(--grey-tone-2);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.10);
+    min-width: 564px;
+}
+
+.buy_rent_lease .img-box {
+    width: 100%;
+    height: 100%;
+    padding-top: 6px;
+}
+
+.buy_rent_lease .img-box img {
+    width: 100%;
+    height: 100%;
+}
+
+/* ///////////////////////////////////////////// [ MEDIA QUERY ] ////////////////////////////////////////////// */
+
+@media (max-width: 1200px) {
+
+    .buy_rent_lease .text-area {
+        padding: 25px 0;
+    }
+
+}
+
+
+@media (max-width: 992px) {
+
+    .buy_rent_lease {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+            url(../../../Asset/Buy_Rent_Lease/Buy.png);
+        background-position: right;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .buy_rent_lease.buy {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+            url(../../../Asset/Buy_Rent_Lease/Buy.png);
+    }
+
+     .buy_rent_lease.rent {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+            url(../../../Asset/Buy_Rent_Lease/Rent.png);
+    }
+
+     .buy_rent_lease.lease {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+            url(../../../Asset/Buy_Rent_Lease/Lease.png);
+    }
+
+    .buy_rent_lease .text-area .heading {
+        font-size: var(--banner-heading-md);
+    }
+
+    .buy_rent_lease .text-area .para {
+        font-size: var(--banner-para-md);
+        padding-right: 180px;
+    }
+
+    .buy_rent_lease .text-area .input-area-box {
+        min-width: 660px;
+        background-color: rgba(255, 255, 255, 0.556);
+        padding-right: 8px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+     .buy_rent_lease.buy {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+            url(../../../Asset/Buy_Rent_Lease/Buy.png);
+    }
+
+    .buy_rent_lease.rent {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+            url(../../../Asset/Buy_Rent_Lease/Rent.png);
+    }
+
+    .buy_rent_lease.lease {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+            url(../../../Asset/Buy_Rent_Lease/Lease.png);
+    }
+
+    .buy_rent_lease .text-area {
+        padding: 20px;
+    }
+
+    .buy_rent_lease .text-area .heading {
+        font-size: var(--banner-heading-sm);
+    }
+
+    .buy_rent_lease .text-area .para {
+        font-size: var(--banner-para-sm);
+        padding: 0;
+    }
+
+    .buy_rent_lease .text-area .input-area-box {
+        min-width: 520px;
+        padding-right: 24px;
+    }
+
+    .buy_rent_lease .text-area .input-area-box .row {
+        gap: 12px 0px !important;
+    }
+
+    .buy_rent_lease .btn-col {
+        order: 9;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+    .buy_rent_lease {
+        background-size: cover;
+        background-position-x: 40px;
+    }
+
+    .buy_rent_lease .text-area .input-area-box .row {
+        gap: 0px 0 !important;
+    }
+
+    .buy_rent_lease .text-area {
+        padding: 8px;
+    }
+
+    .buy_rent_lease .text-area .input-area-box {
+        min-width: unset;
+        padding: 12px;
+    }
+
+    .buy_rent_lease .btn-col{
+        padding-right: 3px !important;
+    }
+
+}

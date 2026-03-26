@@ -1,0 +1,102 @@
+.custom-snackbar {
+    position: fixed;
+    bottom: 36px;
+    left: 24px;
+    z-index: 99999999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    pointer-events: none;
+    /* Prevent scroll adjustments */
+    scroll-margin: 0;
+    scroll-padding: 0;
+    /* Isolate from document flow */
+    contain: layout style paint;
+    will-change: opacity, transform;
+    box-shadow : 0 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0 8px 8px 0 
+}
+
+.custom-snackbar.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.custom-snackbar-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 11px 22px;
+    background: #F5F5F5;
+    border-radius: 0 8px 8px 0  ;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 300px;
+    max-width: 500px;
+    position: relative;
+}
+
+.custom-snackbar-indicator {
+    width: 7px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.custom-snackbar-indicator.success {
+    background: #447158;
+}
+
+.custom-snackbar-indicator.error {
+    background: #C94444;
+}
+
+.custom-snackbar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.custom-snackbar-message {
+    flex: 1;
+    color: #2D2D2D;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.custom-snackbar-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.custom-snackbar-close:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .custom-snackbar {
+        bottom: 16px;
+        left: 16px;
+        right: 16px;
+    }
+    
+    .custom-snackbar-content {
+        min-width: auto;
+        width: 100%;
+    }
+}
+

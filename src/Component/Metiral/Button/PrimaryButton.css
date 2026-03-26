@@ -1,0 +1,103 @@
+:root {
+    --font-family: "DM Sans";
+    --btn-hover: #025625;
+    --btn-primary-hover: #1B4E29;
+    --secondary-color-1: #698B75;
+    --whatsapp-btn: #20A853;
+    /* ///////////// button media query //////// */
+
+    --btn-height-md: 42px;
+    --btn-padding-md: 10px 18px;
+    --btn-padding-sm: 10px 14px;
+}
+
+
+.primary-button {
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: white !important;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.primary-button .text{
+    color: white !important;
+}
+
+.primary-button:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+.primary-button:active {
+    background-color: var(--secondary-color-1);
+    color: #E5E7EB;
+    transform: scale(0.985);
+    border-color: var(--secondary-color-1);
+}
+
+.primary-button:active svg {
+    fill: #E5E7EB !important;
+}
+
+.whatsapp-button {
+    padding: 8px 14px;
+    color: var(--whatsapp-btn);
+    font-family: Urbanist;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    background-color: transparent;
+    border: 1px solid #20A853;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+
+.whatsapp-button:hover {
+    background-color: #E5F0E9 !important;
+}
+
+.whatsapp-button:active {
+    transform: scale(0.985);
+}
+
+
+/* ///////////////////////////////////////////////////  [ Media Qury ] ///////////////////////////////////// */
+
+/* @media (max-width:992px){
+    .primary-button {
+        height: var(--btn-height-md) !important;
+        padding: var(--btn-padding-md) !important;
+    }
+}
+
+
+
+@media (max-width:768px){
+    .primary-button {
+        padding: var(--btn-padding-sm) !important;
+    }
+} */
+
+@media (max-width:576px){
+    .primary-button {
+        height: 40px !important;
+        padding: 10px;
+    }
+} 

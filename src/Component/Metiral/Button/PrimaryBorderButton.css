@@ -1,0 +1,68 @@
+:root {
+    --font-family: "DM Sans";
+    --btn-hover: #025625;
+    --btn-primary-border-hover: #EBF2ED;
+    --secondary-color-1: #698B75;
+    --text-color-2: #555555;
+    /* ///////////// button media query //////// */
+
+    --btn-height-md: 42px;
+    --btn-padding-md: 10px 18px;
+    --btn-padding-sm: 10px 14px;
+    --btn-font-sm: 12px;
+}
+
+
+.primary-border-button {
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color-1);
+    color: var(--secondary-color-1);
+    transition: all 0.2s linear;
+    cursor: pointer;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.primary-border-button:hover,
+.primary-border-button.modified:hover {
+    background-color: var(--btn-primary-border-hover);
+}
+
+
+.primary-border-button.modified:hover .text {
+    color: var(--text-color-2) !important;
+}
+
+.primary-border-button.modified:hover svg path {
+    fill: var(--text-color-2) !important;
+}
+
+
+.primary-border-button:active {
+    transform: scale(0.985);
+}
+
+
+
+/* ///////////////////////////////////////////////////  [ Media Qury ] ///////////////////////////////////// */
+
+@media (max-width:992px) {
+    .media.primary-border-button {
+        padding: var(--btn-padding-md) !important;
+    }
+}
+
+@media (max-width:768px) {
+    .media.primary-border-button {
+        padding: var(--btn-padding-sm) !important;
+        font-size: var(--btn-font-sm) !important;
+    }
+}

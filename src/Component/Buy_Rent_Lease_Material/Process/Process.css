@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+:root {
+
+
+    /* Font Family */
+
+    --font-family: "DM Sans";
+    --font-family-2: "Urbanist", sans-serif;
+    /* Primary Colors */
+    --primary-color: #447158;
+
+
+    /*Hover Button Color*/
+
+    --btn-hover: #025625;
+    --btn-primary-hover: #1B4E29;
+
+    /* Secondary Colors */
+    --secondary-color-1: #698B75;
+    --secondary-color-2: #DCE3DE;
+    --secondary-color-3: #F9F9F9;
+    --secondary-color-4: #F0FDF4;
+    --secondary-color-5: #EFF9F4;
+    --secondary-color-6: #EBF2ED;
+
+    /* Input field / Text Colors */
+    --text-color-1: #2D2D2D;
+    --text-color-2: #555555;
+    --text-color-3: #D9D9D9;
+    --text-color-4: #A9B0B8;
+    --text-color-5: #444545;
+
+    /* Grey Tones */
+    --grey-tone-1: #737678;
+    --grey-tone-2: #BBBBBB;
+    --grey-tone-3: #DCDCDC;
+    --grey-tone-4: #F4F4F4;
+    --grey-tone-5: #8E8E8E;
+    --grey-tone-6: #4F4F4F;
+    --grey-tone-7: #6C6C6C;
+    --grey-tone-8: #ECECEC;
+    --grey-tone-9: #EAEAEA;
+
+    /* Accent Colors */
+    --accent-muted-purple: #CABDFF;
+    --accent-warm-orange: #F9C6AF;
+    --accent-slate-green: #B7E4C7;
+
+    /* State Colors */
+    --state-success: #27AE60;
+    --state-warning: #E2B93B;
+    --state-error: #C94444;
+
+    /* Neutral Colors */
+    --neutral-white: #FFFFFF;
+    --neutral-black: #000000;
+
+    /* Box Shadow */
+
+    --box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+
+    /* Media Query Font Size */
+
+    --banner-heading-md: 22px;
+    --banner-para-md: 14px;
+    --banner-heading-sm: 20px;
+    --banner-para-sm: 14px
+}
+
+/* ////////////////////////////////////////////////////////// [ Property Process ] ///////////////////////////////////////////////////////// */
+
+.property-process {
+    padding-bottom: 20px;
+}
+
+.property-process .heading {
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    margin-bottom: 12px;
+}
+
+.property-process .para {
+    color: var(--grey-tone-1);
+    text-align: justify;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 40px;
+}
+
+.property-process .process-box {
+    display: flex;
+    width: 100%;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 5px;
+}
+
+.property-process .process-box::-webkit-scrollbar {
+    display: none;
+}
+
+.property-process .process-box .process-card {
+    position: relative;
+    flex: 0 0 auto;
+    width: 16.4%;
+    min-width: 197px;
+    height: 76px;
+}
+
+.property-process .process-box .process-card:first-child {
+    margin-right: 3px;
+}
+
+.property-process .process-box .process-card .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 215px;
+    height: 76px;
+}
+
+.property-process .process-box .process-card .img img {
+    width: 100%;
+    height: 100%;
+    /* object-fit:cover ; */
+}
+
+.property-process .process-box .process-card .backNumber {
+    position: absolute;
+    right: 12px;
+    bottom: 0px;
+    color: rgba(105, 139, 117, 0.15);
+    font-family: var(--font-family);
+    font-size: 74px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+.property-process .process-box .process-card .process-card-text {
+    position: absolute;
+    top: 12px;
+    left: 24px;
+    width: 150px;
+}
+
+.property-process .process-box .process-card .process-card-text .heading {
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: 20px !important;
+    margin-bottom: 0;
+}
+
+.property-process .process-box .process-card .process-card-text .para {
+    color: var(--grey-tone-1);
+    font-family: var(--font-family);
+    font-size: 12px !important;
+    font-style: normal;
+    text-align: left;
+    font-weight: 400 !important;
+    line-height: 18px !important;
+    padding-right: 5px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+/* ///////////////////////////////////////////// [ MEDIA QUERY ] ////////////////////////////////////////////// */
+
+@media (max-width: 992px) {
+    .property-process .heading {
+        font-size: var(--heading-1-md);
+    }
+
+    .property-process .para {
+        font-size: var(--banner-para-md);
+    }
+}
+
+@media (max-width: 756px) {
+    .property-process {
+        padding: 0 12px;
+    }
+
+    .property-process .heading {
+        font-size: var(--heading-1-sm);
+    }
+
+    .property-process .para {
+        font-size: var(--banner-para-sm);
+    }
+}

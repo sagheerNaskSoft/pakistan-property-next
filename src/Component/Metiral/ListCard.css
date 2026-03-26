@@ -1,0 +1,546 @@
+:root {
+    /* Primary Colors */
+    --primary-color: #447158;
+
+    /* Secondary Colors */
+    --secondary-color-1: #698B75;
+    --secondary-color-2: #DCE3DE;
+    --secondary-color-3: #F9F9F9;
+    --secondary-color-6: #E8F7EE;
+
+    /* Input field / Text Colors */
+    --text-color-1: #2D2D2D;
+    --text-color-2: #555555;
+    --text-color-3: #D9D9D9;
+    --text-color-4: #A9B0B8;
+
+    /* Grey Tones */
+    --grey-tone-1: #737678;
+    --grey-tone-2: #BBBBBB;
+    --grey-tone-3: #DCDCDC;
+    --grey-tone-4: #F4F4F4;
+
+    /* Accent Colors */
+    --accent-muted-purple: #CABDFF;
+    --accent-warm-orange: #F9C6AF;
+    --accent-slate-green: #B7E4C7;
+
+    /* State Colors */
+    --state-success: #27AE60;
+    --state-warning: #E2B93B;
+    --state-error: #C94444;
+
+    /* Neutral Colors */
+    --neutral-white: #FFFFFF;
+    --neutral-black: #000000;
+}
+
+.list_card {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid var(--Grey-Colors-Color---Grey-2, #BBB);
+    /* overflow: hidden; */
+    cursor: pointer;
+}
+
+.grid_card .card_img_list {
+    height: 304px !important;
+
+}
+
+.grid_card .card_img_list .verify,
+.list_card .card_img_list .verify {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    padding: 10px 2px;
+    top: 12px;
+    left: 200px;
+    flex-shrink: 0;
+    border-radius: 5.333px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--Strokephism, rgba(213, 213, 213, 0.70));
+    background: #ffffffaa;
+    backdrop-filter: blur(1px);
+}
+
+.list_card .card_img_list {
+    width: 100%;
+    height: 390px;
+    position: relative;
+    border-bottom: 1px solid var(--Grey-Colors-Color---Grey-2, #BBB);
+}
+
+.list_card .card_img_list .banner_img_project_list {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.list_card .feature_tag img {
+    width: 16.001px;
+    height: 15.223px;
+
+}
+
+.list_card .feature_tag {
+    position: absolute;
+    display: inline-flex;
+    height: 28px;
+    padding: 4px 12px;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    border-radius: 999px;
+    bottom: 12px;
+    right: 12px;
+    background: #FFF9E5;
+    /* inner fill */
+    z-index: 1;
+    overflow: visible;
+}
+
+.list_card .feature_tag::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    /* border thickness */
+    border-radius: 999px;
+    background: linear-gradient(297deg,
+            #A67B02 6.48%,
+            #FFCD44 19.73%,
+            #FEDB74 30.88%,
+            #FFBE06 41.12%,
+            #FFCD44 58.6%,
+            #A67B02 82.41%);
+    -webkit-mask:
+        /* carve out the center so only the “border” shows */
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+.list_card.featuer {
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 4px;
+
+    background:
+        linear-gradient(white, white) padding-box,
+        /* inner fill */
+        linear-gradient(297deg, #A67B02 6.48%, #FFCD44 19.73%, #FEDB74 30.88%, #FFBE06 41.12%, #FFCD44 58.6%, #A67B02 82.41%) border-box;
+    /* gradient border */
+    background-origin: padding-box, border-box;
+    background-clip: padding-box, border-box;
+}
+
+.list_card.featuer .card_body {
+    background: #FFF9E5;
+}
+
+.list_card .feature_tag span {
+    color: var(--Text-Colos-1, #2D2D2D);
+    margin-left: 2px;
+    /* H6 (Body Small) Regular */
+    font-family: "DM Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 150% */
+}
+
+.list_card .card_img_list .market_by {
+    position: absolute;
+    /* width: 180px; */
+    height: 32px;
+    top: 12px;
+    left: 12px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 5px 13px;
+    justify-content: center;
+    border: 1px solid var(--Strokephism, rgba(213, 213, 213, 0.70));
+    background: #ffffffaa;
+    backdrop-filter: blur(1px);
+
+}
+
+.list_card .card_img_list .share {
+    position: absolute;
+    top: 12px;
+    cursor: pointer;
+    right: 12px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    justify-content: center;
+    border: 1px solid var(--Strokephism, rgba(213, 213, 213, 0.70));
+    background: #ffffffaa;
+    backdrop-filter: blur(1px);
+
+}
+
+.list_card .card_img_list .area_sextion {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list_card .card_img_list .area_sextion .boxs {
+    display: flex;
+    height: 28px;
+    padding: 4px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 16px;
+    margin-right: 4px;
+    border: 1px solid var(--Strokephism, rgba(213, 213, 213, 0.70));
+    background: #ffffffaa;
+    backdrop-filter: blur(1px);
+}
+
+.list_card .card_img_list .area_sextion .boxs span {
+    color: var(--Text-Colos-1, #2D2D2D);
+    text-align: center;
+    font-family: "DM Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 150% */
+}
+
+.list_card .card_img_list .market_by h6 {
+    color: var(--Text-Colos-1, #2D2D2D);
+    font-family: "DM Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    margin-right: 4px;
+    /* 150% */
+}
+
+.list_card .card_body {
+    padding: 16px;
+
+}
+
+.list_card .card_body h3 {
+    color: var(--Text-Colos-1, #2D2D2D);
+
+    /* H1 */
+    font-family: "DM Sans";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+
+    /* Line clamp for single line */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list_card .card_body p {
+    color: var(--Grey-Colors-Color---Grey-1, #737678);
+
+    /* H5 (Base) - SB */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.list_card .card_body h4 {
+    color: var(--Grey-Colors-Color---Grey-1, #737678);
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.list_card .card_body h4 span {
+    color: var(--Text-Colos-1, #2D2D2D);
+    font-family: "DM Sans";
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    margin: 0 4px 0 2px;
+}
+
+.list_card .card_body .contact-box {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: fit-content;
+    justify-content: center;
+}
+
+.list_card .card_body .contact-box .contact {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.grid_card .card_body .contact-box .contact.call {
+    width: 125px !important;
+}
+
+.grid_card .card_body .contact-box .contact.whatsapp {
+    width: 125px !important;
+    border-radius: 8px !important;
+    border: 1px solid #20A853 !important;
+    color: #20A853 !important;
+}
+.grid_card .card_body .contact-box .contact.email {
+    width: 125px !important;
+}
+.grid_card .card_body .contact-box .contact.small{
+    width: 110px !important;
+}
+.grid_card .card_body .contact-box .contact.small.whatsapp {
+   font-size: 12px !important;
+   padding: 6px 12px !important;
+}
+.list_card .card_body .contact-box .contact.call {
+    border: 1px solid var(--secondary-color-1);
+    color: var(--secondary-color-1);
+    padding: 8px 12px;
+    width: 110px;
+
+}
+
+.list_card .card_body .monay-exchnage {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: max-content;
+
+}
+
+/* Show price container on hover only for screens 767px and above */
+@media (min-width: 767px) {
+    .list_card .card_body .monay-exchnage:hover .price_container {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.list_card .card_body .monay-exchnage .price_container svg {
+    width: 16px;
+    height: 16px;
+    left: 45%;
+    top: 97%;
+    /* transform: rotate(270deg); */
+    position: absolute;
+    fill: #737678 !important;
+}
+
+.list_card .card_body .monay-exchnage .price_container svg path , .list_card .card_body .monay-exchnage .price_container svg rect{
+    fill: #737678 !important;
+}
+
+.list_card .card_body .monay-exchnage .price_container {
+    position: absolute;
+    width: 235px;
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0;
+    border-radius: 4px;
+    background: #737678;
+    display: flex;
+    padding: 4px 8px 8px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    top: -150px;
+    left: -103px;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+/* On hover, enable pointer events */
+@media (min-width: 767px) {
+    .list_card .card_body .monay-exchnage:hover .price_container {
+        pointer-events: auto;
+    }
+}
+
+.list_card .card_body .monay-exchnage .price_container h6 {
+    color: var(--neutral-white);
+
+    /* H6 (Body Small) Medium */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    /* 150% */
+}
+
+.list_card .card_body .monay-exchnage .price_container .flag_country {
+    margin-right: 14px;
+
+}
+
+.list_card .card_body .monay-exchnage .price_container .price-tag p {
+    color: var(--neutral-white) !important;
+    /* H6 (Body Small) Regular */
+    font-family: "DM Sans" !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: 18px !important;
+    /* 150% */
+}
+
+.list_card .card_body .contact-box .contact.call:hover {
+    background-color: var(--secondary-color-5);
+}
+
+
+
+.list_card .card_body .contact-box .contact.email {
+    background-color: var(--primary-color);
+    color: white;
+    border: 1px solid var(--primary-color);
+    padding: 8px 12px;
+    width: 110px;
+
+}
+
+.list_card .card_body .contact-box .contact.email:hover {
+    background-color: var(--btn-hover);
+}
+
+
+.list_card .card_body .contact-box .contact.whatsapp:hover {
+    background-color: var(--secondary-color-6);
+
+
+}
+
+.grid_card .card_body {
+    padding: 12px 18px 16px 18px !important;
+
+}
+
+.list_card .card_body .contact-box .contact.whatsapp {
+    border: 1px solid var(--state-green);
+    color: #20A853;
+    border-radius: 8px !important;
+    border: 1px solid #20A853 !important;
+    padding: 6px 14px;
+}
+
+.list_card .card_body .contact-box .contact {
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    .list_card .card_body h3 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .grid_card .card_body .contact-box {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        width: 100% !important;
+    }
+    .grid_card .card_body .contact-box .contact.email,
+    .grid_card .card_body .contact-box .contact.whatsapp,
+    .grid_card .card_body .contact-box .contact.call {
+        width: 32% !important;
+        padding: 8px 8px;
+    }
+
+    .list_card .card_img_list .share svg {
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    /* .grid_card .card_body .contact-box .contact.email, */
+    .grid_card .card_body .contact-box .contact.whatsapp {
+        padding: 6px 8px;
+    }
+
+    .grid_card .card_body {
+        padding: 12px 10px 16px 10px !important;
+    }
+
+    .grid_card .card_img_list {
+        height: 200px !important;
+    }
+
+    .list_card .card_img_list .area_sextion .boxs {
+        height: 24px;
+        padding: 4px 6px;
+    }
+
+    .list_card .feature_tag {
+        height: 24px;
+        padding: 4px 8px;
+    }
+
+    .list_card .feature_tag span,
+    .list_card .card_img_list .area_sextion .boxs span {
+        font-size: 10px;
+    }
+
+    .list_card .card_body h4 {
+        font-size: 12px;
+    }
+
+    .list_card .card_body h4 span {
+        font-size: 18px;
+        margin-left: 10px;
+    }
+
+}
+
+@media (max-width: 350px) {
+
+    /* .grid_card .card_body .contact-box .contact.email, */
+    .grid_card .card_body .contact-box .contact.whatsapp {
+        padding: 6px 8px;
+    }
+
+}

@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+:root {
+
+
+    /* Font Family */
+
+    --font-family: "DM Sans";
+    --font-family-2: "Urbanist", sans-serif;
+    /* Primary Colors */
+    --primary-color: #447158;
+
+
+    /*Hover Button Color*/
+
+    --btn-hover: #025625;
+    --btn-primary-hover: #1B4E29;
+
+    /* Secondary Colors */
+    --secondary-color-1: #698B75;
+    --secondary-color-2: #DCE3DE;
+    --secondary-color-3: #F9F9F9;
+    --secondary-color-4: #F0FDF4;
+    --secondary-color-5: #EFF9F4;
+    --secondary-color-6: #EBF2ED;
+
+    /* Input field / Text Colors */
+    --text-color-1: #2D2D2D;
+    --text-color-2: #555555;
+    --text-color-3: #D9D9D9;
+    --text-color-4: #A9B0B8;
+    --text-color-5: #444545;
+
+    /* Grey Tones */
+    --grey-tone-1: #737678;
+    --grey-tone-2: #BBBBBB;
+    --grey-tone-3: #DCDCDC;
+    --grey-tone-4: #F4F4F4;
+    --grey-tone-5: #8E8E8E;
+    --grey-tone-6: #4F4F4F;
+    --grey-tone-7: #6C6C6C;
+    --grey-tone-8: #ECECEC;
+
+    /* Accent Colors */
+    --accent-muted-purple: #CABDFF;
+    --accent-warm-orange: #F9C6AF;
+    --accent-slate-green: #B7E4C7;
+
+    /* State Colors */
+    --state-success: #27AE60;
+    --state-warning: #E2B93B;
+    --state-error: #C94444;
+
+    /* Neutral Colors */
+    --neutral-white: #FFFFFF;
+    --neutral-black: #000000;
+
+    /* Box Shadow */
+
+    --box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+
+    /* Media Query Font Size*/
+
+    --heading-1-md: 22px;
+    --para-md: 14px;
+    --heading-1-sm: 20px;
+    --para-sm: 14px
+}
+
+
+/* ////////////////////////////////////////////////////////////////// [ Solutions ] ////////////////////////////////////////////////////////// */
+
+.lease-solution .heading {
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    margin-bottom: 4px;
+}
+
+.lease-solution .para {
+    color: var(--grey-tone-1);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 24px;
+}
+
+.lease-solution .lease-card-box {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.lease-solution .lease-card-box .lease-card {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    padding: 8px 12px 12px;
+    border-radius: 8px;
+    height: 70px;
+    max-width: 288px;
+}
+
+.lease-solution .lease-card-box .lease-card .img-box {
+    display: flex;
+    min-width: 30px;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    border-radius: 4px;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+}
+
+/* .lease-solution .lease-card-box .lease-card .textside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+} */
+
+.lease-solution .lease-card-box .lease-card .textside .heading {
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: 20px !important;
+    margin: 5px 0 2px;
+}
+
+.lease-solution .lease-card-box .lease-card .textside .para {
+    color: var(--text-color-2);
+    font-family: var(--font-family);
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: 20px !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.lease-solution .lease-card-box .lease-card:nth-child(1) {
+    background: rgba(164, 204, 251, 0.30);
+}
+
+.lease-solution .lease-card-box .lease-card:nth-child(2) {
+    background: #FDF0D2;
+}
+
+.lease-solution .lease-card-box .lease-card:nth-child(3) {
+    background: #F9E2CB;
+}
+
+.lease-solution .lease-card-box .lease-card:nth-child(4) {
+    background: #E6E1FC;
+}
+
+.lease-solution .lease-heading {
+    color: var(--text-color-1);
+    font-family: var(--font-family);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    margin: 40px 0 20px 0;
+}
+
+.lease-solution .lease-para {
+    color: var(--grey-tone-1);
+    text-align: justify;
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.lease-solution .ul-box {
+    padding: 20px 0 0 16px;
+}
+
+.lease-solution .ul-box .li {
+    color: var(--grey-tone-1);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.lease-solution .image {
+    max-width: 505px;
+    width: 100%;
+    height: 220px;
+    margin-top: 40px;
+    overflow: hidden;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-left: auto;
+}
+
+.lease-solution .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ////////////////////////////////////////////////// [ Media Query ] ////////////////////////////////// */
+
+@media (max-width:992px) {
+
+    .lease-solution .heading,
+    .lease-solution .lease-heading {
+        font-size: var(--heading-1-md);
+    }
+
+    .lease-solution .para,
+    .lease-solution .lease-para {
+        font-size: var(--para-md);
+    }
+
+    .lease-solution .lease-card-box .lease-card {
+        max-width: 48%;
+    }
+
+    /* .lease-solution .lease-card-box .lease-card .para {
+        white-space: nowrap;
+    } */
+
+    .lease-solution {
+        padding: 0 12px;
+    }
+}
+
+
+@media (max-width:776px) {
+
+    .lease-solution .heading,
+    .lease-solution .lease-heading {
+        font-size: var(--heading-1-sm);
+    }
+
+    .lease-solution .para,
+    .lease-solution .lease-par {
+        font-size: var(--para-sm);
+    }
+
+    .lease-solution .lease-card-box {
+        gap: 12px 6px;
+    }
+
+    .lease-solution .lease-card-box .lease-card {
+        max-width: 49%;
+        margin: 0 auto;
+    }
+}
+
+
+@media (max-width:556px) {
+
+ 
+    .lease-solution .image {
+        display: none;
+    }
+
+    .lease-solution .lease-card-box .lease-card {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}

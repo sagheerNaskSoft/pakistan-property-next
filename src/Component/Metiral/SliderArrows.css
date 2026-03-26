@@ -1,0 +1,41 @@
+.slider-arrow-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.slider-arrow-box:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.slider-arrow-left {
+    left: -15px;
+}
+
+.slider-arrow-right {
+    right: -15px;
+}
+
+.slider-arrow-box svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width : 576px){
+    .slider-arrow-box{
+        display: none !important;
+    }
+}
+

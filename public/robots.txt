@@ -1,0 +1,10 @@
+User-agent: *
+# Block Filter Pages (URLs with query parameters)
+Disallow: /*?*
+Disallow: /*&*
+
+# Allow everything else
+Allow: /
+
+# Sitemap
+Sitemap: https://pakistanproperty.com/sitemap.xml

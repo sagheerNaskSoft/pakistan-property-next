@@ -1,0 +1,55 @@
+.help-center-topic-banner-left .link{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-color-2);
+    font-family: "DM Sans";
+    text-decoration: none;
+    cursor: pointer;
+   
+}
+.help-center-topic-banner-left .link:hover{
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.help-center-topic-banner-right button{
+    background: none;
+    color: #447158;
+    border: 1px solid #447158;
+    border-radius: 4px;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+.help-center-topic-banner-right button:hover{
+    background: #447158;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.help-center-topic-banner-right-content p{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color-2);
+    font-family: "DM Sans" !important;
+}
+.help-center-topic-banner-right p{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color-2);
+    font-family: "DM Sans" !important;
+}
+.help-center-topic-banner-right a{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-color-2);
+    font-family: "DM Sans";
+    text-decoration: none;
+    cursor: pointer;
+}
+.help-center-topic-banner-right a:hover{
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}

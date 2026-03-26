@@ -1,0 +1,156 @@
+.help-center-banner{
+    width: 100%;
+    height: 350px;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.help-center-banner h1{
+    font-size: 30px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    font-family: "DM Sans";
+}
+.help-center-banner p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    text-align: center;
+    font-family: "DM Sans";
+}
+.help-center-banner-form{
+    width: 50%;
+    background: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 8px;
+}
+.help-center-banner-form button{
+    background: #447158;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-weight: 400;
+    height: 48px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.category-list-help-center {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 0;
+}
+.category-item-help-center{
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+.category-item-help-center h5{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color-2);
+    font-family: "DM Sans";
+}
+.category-item-help-center p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    font-family: "DM Sans";
+    color: var(--text-color-2);
+}
+.category-item-help-center:hover{
+    transform: scale(1.01);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 20%), 0 1px 5px rgb(0 0 0 / 14%)}
+.category-list-help-center-heading{
+    margin-top: 20px;
+}
+.category-list-help-center-heading h2{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color-2);
+    font-family: "DM Sans";
+}
+.help-center-subcategory-banner h3{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color-2);
+    font-family: "DM Sans";
+}
+.help-center-subcategory-banner p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    font-family: "DM Sans";
+}
+.help-center-subcategory-banner h4{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color-1);
+    font-family: "DM Sans";
+}
+.help-center-subcategory-banner a{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color-2);
+    font-family: "DM Sans";
+}
+.help-center-subcategory-banner a:hover{
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: 600;
+}
+.help-center-subcategory-banner a:active{
+    color: var(--primary-color);
+}
+.help-center-topic-banner-left .link{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-color-2);
+    font-family: "DM Sans";
+    text-decoration: none;
+    cursor: pointer;
+   
+}
+.help-center-topic-banner-left .link:hover{
+    color: var(--primary-color);
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.help-center-topic-banner-right button{
+    background: none;
+    color: #447158;
+    border: 1px solid #447158;
+    border-radius: 4px;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+.help-center-topic-banner-right button:hover{
+    background: #447158;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.help-center-topic-banner-right p{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color-2);
+    font-family: "DM Sans";
+}

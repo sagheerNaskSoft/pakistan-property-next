@@ -9,13 +9,60 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.0"
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.4",
+    "@mui/material": "^7.3.4",
+    "@mui/styled-engine-sc": "^7.3.2",
+    "@mui/utils": "^7.3.3",
+    "@mui/x-charts": "^8.11.0",
+    "@mui/x-date-pickers": "^8.14.1",
+    "@mui/x-date-pickers-pro": "^8.14.1",
+    "bootstrap": "^5.3.7",
+    "dayjs": "^1.11.18",
+    "firebase": "^12.6.0",
+    "gsap": "^3.13.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.4",
+    "laravel-echo": "^2.3.0",
+    "next": "^15.2.4",
+    "pdfjs-dist": "^5.4.449",
+    "pusher-js": "^8.4.0",
+    "react": "^19.1.0",
+    "react-bootstrap": "^2.10.10",
+    "react-datepicker": "^8.8.0",
+    "react-dom": "^19.1.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.3",
+    "react-select": "^5.10.1",
+    "react-slick": "^0.30.3",
+    "reactjs-social-login": "^2.6.3",
+    "recharts": "^3.3.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.19",
+    "swiper": "^11.2.10",
+    "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "eslint": "^9",
-    "eslint-config-next": "15.1.0",
-    "@eslint/eslintrc": "^3"
-  }
+    "eslint-config-next": "^15.2.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ]
 }

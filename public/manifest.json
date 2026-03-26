@@ -1,0 +1,25 @@
+{
+  "short_name": "Pakistan Property",
+  "name": "Pakistan Property",
+  "icons": [
+    {
+      "src": "https://pakistanproperty.com/favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/jpeg/png"
+    },
+    {
+      "src": "https://pakistanproperty.com/favicon.png",
+      "type": "image/jpeg/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://pakistanproperty.com/favicon.png",
+      "type": "image/jpeg/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

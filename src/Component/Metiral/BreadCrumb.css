@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+:root {
+
+
+    /* Font Family */
+
+    --font-family: "DM Sans";
+    /* Primary Colors */
+    --primary-color: #447158;
+
+    /* Input field / Text Colors */
+    --text-color-2: #555555;
+
+}
+
+
+.global-bread-crumb{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+
+.global-bread-crumb .item {
+    color: var(--primary-color);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    flex-shrink: 1;
+}
+
+.global-bread-crumb .item.last-item {
+    color: var(--text-color-2);
+    overflow: visible;
+    text-overflow: unset;
+    max-width: none;
+    flex-shrink: 0;
+}
+
+/* Above md: clamp last breadcrumb to one line with ellipsis */
+@media (min-width: 768px) {
+    .global-bread-crumb .item.last-item.last-item-clamp {
+        display: block;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 1;
+        min-width: 0;
+    }
+}
+
+@media (max-width:768px){
+    .global-bread-crumb{
+        padding-left: 20px;
+    }
+}
+
+@media (max-width:576px){
+    .global-bread-crumb{
+        padding-left: 0px;
+        gap: 0;
+        overflow: visible;
+    }
+    .global-bread-crumb .item{
+        font-size: 14px;
+    }
+    
+    .global-bread-crumb .item.last-item {
+        overflow: visible;
+        text-overflow: unset;
+        max-width: none;
+        flex-shrink: 0;
+        white-space: normal;
+    }
+
+    .global-bread-crumb svg{
+        width: 24px !important;
+        height: 24px !important;
+    }
+}
