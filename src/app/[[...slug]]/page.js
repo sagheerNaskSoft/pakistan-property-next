@@ -15,10 +15,19 @@ function getSiteUrl() {
 }
 
 function toAbsoluteUrl(pathOrUrl, siteUrl) {
-  if (!pathOrUrl) return `${siteUrl}${FALLBACK_IMAGE}`;
-  if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl;
-  const normalized = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`;
-  return `${siteUrl}${normalized}`;
+  const fallback = `${siteUrl}${FALLBACK_IMAGE}`;
+  if (!pathOrUrl) return fallback;
+
+  try {
+    const sanitized = encodeURI(String(pathOrUrl).trim());
+    if (/^https?:\/\//i.test(sanitized)) {
+      return new URL(sanitized).toString();
+    }
+    const normalized = sanitized.startsWith('/') ? sanitized : `/${sanitized}`;
+    return new URL(normalized, siteUrl).toString();
+  } catch {
+    return fallback;
+  }
 }
 
 async function getProperty(slug) {
@@ -37,56 +46,88 @@ async function getProperty(slug) {
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }) {
-  const siteUrl = getSiteUrl();
-  const segments = params?.slug || [];
-  const [first, second] = segments;
+  try {
+    const siteUrl = getSiteUrl();
+    const rawSegments = params?.slug;
+    const segments = Array.isArray(rawSegments) ? rawSegments : rawSegments ? [rawSegments] : [];
+    const [first, second] = segments;
 
-  // Server-side OG for property detail shares.
-  if (first === 'property-detail' && second) {
-    const property = await getProperty(second);
-    const title = property?.title ? `${property.title} - Pakistan Property` : DEFAULT_TITLE;
-    const description = property?.description || DEFAULT_DESCRIPTION;
-    const imageCandidate = Array.isArray(property?.property_images) ? property.property_images[0] : null;
-    const imagePath =
-      typeof imageCandidate === 'string' ? imageCandidate : imageCandidate?.image || imageCandidate?.url;
-    const image = toAbsoluteUrl(imagePath || FALLBACK_IMAGE, siteUrl);
-    const url = `${siteUrl}/property-detail/${second}`;
+    // Server-side OG for property detail shares.
+    if (first === 'property-detail' && second) {
+      const property = await getProperty(second);
+      const title = property?.title ? `${property.title} - Pakistan Property` : DEFAULT_TITLE;
+      const description = property?.description || DEFAULT_DESCRIPTION;
+      const imageCandidate = Array.isArray(property?.property_images) ? property.property_images[0] : null;
+      const imagePath =
+        typeof imageCandidate === 'string' ? imageCandidate : imageCandidate?.image || imageCandidate?.url;
+      const image = toAbsoluteUrl(imagePath || FALLBACK_IMAGE, siteUrl);
+      const url = toAbsoluteUrl(`/property-detail/${second}`, siteUrl);
 
-    return {
-      title,
-      description,
-      openGraph: {
-        type: 'website',
+      return {
         title,
         description,
-        url,
+        openGraph: {
+          type: 'website',
+          title,
+          description,
+          url,
+          siteName: 'Pakistan Property',
+          images: [{ url: image, width: 1200, height: 630 }],
+          locale: 'en_US',
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title,
+          description,
+          images: [image],
+        },
+      };
+    }
+
+    const path = segments.length ? `/${segments.join('/')}` : '/';
+    const defaultImage = toAbsoluteUrl(FALLBACK_IMAGE, siteUrl);
+    return {
+      title: DEFAULT_TITLE,
+      description: DEFAULT_DESCRIPTION,
+      openGraph: {
+        type: 'website',
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+        url: toAbsoluteUrl(path, siteUrl),
         siteName: 'Pakistan Property',
-        images: [{ url: image, width: 1200, height: 630 }],
+        images: [{ url: defaultImage, width: 1200, height: 630 }],
         locale: 'en_US',
       },
       twitter: {
         card: 'summary_large_image',
-        title,
-        description,
-        images: [image],
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+        images: [defaultImage],
+      },
+    };
+  } catch {
+    const siteUrl = getSiteUrl();
+    const defaultImage = toAbsoluteUrl(FALLBACK_IMAGE, siteUrl);
+    return {
+      title: DEFAULT_TITLE,
+      description: DEFAULT_DESCRIPTION,
+      openGraph: {
+        type: 'website',
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+        url: siteUrl,
+        siteName: 'Pakistan Property',
+        images: [{ url: defaultImage, width: 1200, height: 630 }],
+        locale: 'en_US',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: DEFAULT_TITLE,
+        description: DEFAULT_DESCRIPTION,
+        images: [defaultImage],
       },
     };
   }
-
-  const path = segments.length ? `/${segments.join('/')}` : '/';
-  return {
-    title: DEFAULT_TITLE,
-    description: DEFAULT_DESCRIPTION,
-    openGraph: {
-      type: 'website',
-      title: DEFAULT_TITLE,
-      description: DEFAULT_DESCRIPTION,
-      url: `${siteUrl}${path}`,
-      siteName: 'Pakistan Property',
-      images: [{ url: `${siteUrl}${FALLBACK_IMAGE}`, width: 1200, height: 630 }],
-      locale: 'en_US',
-    },
-  };
 }
 
 export default function CatchAllPage() {
