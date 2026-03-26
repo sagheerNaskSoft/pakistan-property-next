@@ -72,9 +72,9 @@ function AppRoutes() {
 
   return (
     <>
-      {!pathname?.includes('property-detail') ||
-      !pathname?.includes('project-detail') ||
-      !pathname?.includes('news-detail') ||
+      {!pathname?.includes('property-detail') &&
+      !pathname?.includes('project-detail') &&
+      !pathname?.includes('news-detail') &&
       !pathname?.includes('blog-detail') ? (
         <Helmet defaultTitle="Pakistan Property" titleTemplate="%s - Pakistan Property">
           <meta property="og:site_name" content="Pakistan Property" />
