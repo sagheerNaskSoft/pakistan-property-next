@@ -43,6 +43,18 @@ async function getProperty(slug) {
   }
 }
 
+function cleanDescription(text) {
+  if (!text) return DEFAULT_DESCRIPTION;
+  return String(text)
+    .replace(/\*\*/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isChatFriendlyImage(url) {
+  return /\.(jpe?g|png)(\?.*)?$/i.test(url || '');
+}
+
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }) {
@@ -56,11 +68,14 @@ export async function generateMetadata({ params }) {
     if (first === 'property-detail' && second) {
       const property = await getProperty(second);
       const title = property?.title ? `${property.title} - Pakistan Property` : DEFAULT_TITLE;
-      const description = property?.description || DEFAULT_DESCRIPTION;
+      const description = cleanDescription(property?.description);
       const imageCandidate = Array.isArray(property?.property_images) ? property.property_images[0] : null;
       const imagePath =
         typeof imageCandidate === 'string' ? imageCandidate : imageCandidate?.image || imageCandidate?.url;
-      const image = toAbsoluteUrl(imagePath || FALLBACK_IMAGE, siteUrl);
+      const candidateImage = toAbsoluteUrl(imagePath || FALLBACK_IMAGE, siteUrl);
+      const image = isChatFriendlyImage(candidateImage)
+        ? candidateImage
+        : toAbsoluteUrl(FALLBACK_IMAGE, siteUrl);
       const url = toAbsoluteUrl(`/property-detail/${second}`, siteUrl);
 
       return {
