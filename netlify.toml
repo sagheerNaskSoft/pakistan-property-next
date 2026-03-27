@@ -1,6 +1,11 @@
+# Next.js on Netlify: do NOT set publish = ".next" — the runtime plugin emits the correct output.
+# See: https://docs.netlify.com/integrations/frameworks/next-js/overview/
+
 [build]
   command = "npm run build"
-  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [build.environment]
   NODE_VERSION = "20"
