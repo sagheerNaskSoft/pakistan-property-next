@@ -23,8 +23,12 @@ Link: ${link}
 Please share more details. Thank you!`;
 }
 
+const PUBLIC_SITE_ORIGIN = 'https://pakistanproperty.com';
+
 export function getPropertyDetailUrl(slug) {
-  if (typeof window === 'undefined') return '';
+  if (typeof window === 'undefined') {
+    return slug ? `${PUBLIC_SITE_ORIGIN}/property-detail/${slug}` : PUBLIC_SITE_ORIGIN;
+  }
   const base = window.location.origin;
   return slug ? `${base}/property-detail/${slug}` : base;
 }

@@ -62,7 +62,7 @@ const HelpCenterSubcategoryPage = lazy(() => import('./WebsitePages/HelpCenterSu
 const HelpCenterTopicPage = lazy(() => import('./WebsitePages/HelpCenterTopicPage'));
 const PageNotFound = lazy(() => import('./WebsitePages/PageNotFound'));
 
-function AppRoutes() {
+function AppRoutes({ ssrPropertyDetail }) {
   const location = useLocation();
   const pathname = location.pathname;
   const defaultOgImage =
@@ -105,7 +105,10 @@ function AppRoutes() {
           <Route path="/properties" element={<PropertyListing />} />
           <Route path="/properties/:slug" element={<PropertyListing />} />
           <Route path="/agency-property-Listing" element={<AgencyPropertyListing />} />
-          <Route path="/property-detail/:slug" element={<PropertyDetail />} />
+          <Route
+            path="/property-detail/:slug"
+            element={<PropertyDetail ssrPropertyDetail={ssrPropertyDetail} />}
+          />
           <Route path="/property-wishlist" element={<WishList />} />
           <Route path="/saved-search" element={<SavedSearches />} />
           <Route path="/project-detail/:id/:slug" element={<ProjectDetail />} />
@@ -158,7 +161,7 @@ function AppRoutes() {
   );
 }
 
-function App() {
+function App({ ssrPropertyDetail }) {
   const { 
     countriesCode, 
     getType, 
@@ -252,7 +255,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <AppRoutes ssrPropertyDetail={ssrPropertyDetail} />
     </BrowserRouter>
   );
 }

@@ -5,7 +5,6 @@ import { useAuth } from '../Context/ContextProvider'
 import PageLoading from '../Component/Metiral/PageLoading'
 import propertyNotFound from '../Asset/not-found.png'
 import { TbHomeSearch } from "react-icons/tb";
-import Head from 'next/head'
 import EndUserChat from '../Component/Metiral/EndUserChat'
 
 import Image from 'next/image';
@@ -17,8 +16,9 @@ const PreLocation = lazy(() => import('../Component/HomePage/PreLocation'))
 const PreProperty = lazy(() => import('../Component/HomePage/PreProperty'))
 const Footer = lazy(() => import('../Component/NavBarFooter/Footer'))
 
-function PropertyDetail() {
+function PropertyDetailClient({ ssrPropertyDetail }) {
   const params = useParams()
+  const slug = params?.slug
   const { getPropertyDetail, getSearchLocation, getPropertyAmenities, getSimilarProperties, getUserOfProperty } = useAuth()
   const [propertyData, setPropertyData] = useState()
   const [propertyFound, setPropertyFound] = useState(true)
@@ -26,9 +26,22 @@ function PropertyDetail() {
   const [propertyAmenities, setPropertyAmenities] = useState([])
   const [similarProperties, setSimilarProperties] = useState([])
   const [userOfProperty, setUserOfProperty] = useState({})
-  const [loading, setLoading] = useState(true)
+  const fromSSR = ssrPropertyDetail?.slug === slug ? ssrPropertyDetail.initialPropertyData : undefined
+  const [loading, setLoading] = useState(() => {
+    if (fromSSR === undefined) return true
+    if (fromSSR === null) return false
+    return !fromSSR?.property
+  })
   const [endUserChatOpen, setEndUserChatOpen] = useState(false)
+  const [isNarrowViewport, setIsNarrowViewport] = useState(false)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const check = () => setIsNarrowViewport(typeof window !== 'undefined' && window.innerWidth <= 576)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   useEffect(() => {
     const body = document.body
@@ -49,6 +62,65 @@ function PropertyDetail() {
     }
   }, [endUserChatOpen])
 
+  const pushRecentlyViewed = (property, id) => {
+    const existingData = JSON.parse(localStorage.getItem("recentViewed")) || [];
+    const alreadyExists = existingData.some(
+      (item) => item?.id === property?.property_id
+    );
+    if (!alreadyExists) {
+      const entry = {
+        images: property?.property_images,
+        is_liked: property?.is_liked,
+        title: property?.title,
+        price: property?.price,
+        bedrooms: property?.bedrooms,
+        bathrooms: property?.bathrooms,
+        installments_available: property?.installments_available,
+        property_type_id: property?.property_type_slug === 'sell' ? 1 : property?.property_type_slug === 'rent' ? 2 : property?.property_type_slug === 'lease' ? 3 : 0,
+        city: { name: property?.city },
+        location: { name: property?.location?.name },
+        slug: id,
+        area_size: property?.area_size,
+        unit_area: property?.area_unit_name,
+        id: property?.property_id,
+        active_offer: { label: property?.offer_name },
+        ready_for_possession: property?.ready_for_possession,
+      }
+      const updatedData = [entry, ...existingData];
+      if (updatedData.length > 8) {
+        updatedData.pop();
+      }
+      localStorage.setItem("recentViewed", JSON.stringify(updatedData));
+    }
+  }
+
+  const loadSupplementary = async (id, property) => {
+    try {
+      pushRecentlyViewed(property, id)
+      const propertyAmenitiesRes = await getPropertyAmenities(id);
+      const similarPropertiesRes = await getSimilarProperties({ location_id: property?.location?.id, user_id: property?.user_id, property_type_slug: property?.property_type_slug });
+      const userOfPropertyRes = await getUserOfProperty(property?.user_id);
+      if (userOfPropertyRes?.success) {
+        setUserOfProperty(userOfPropertyRes?.data?.data)
+      }
+      if (propertyAmenitiesRes?.success) {
+        setPropertyAmenities(propertyAmenitiesRes?.data?.data?.categories_with_amenities)
+      }
+      if (similarPropertiesRes?.success) {
+        setSimilarProperties(similarPropertiesRes?.data?.data)
+      }
+      let locationSearch = await getSearchLocation({
+        city_code: property?.city_app_code,
+        location_id: property?.location?.id
+      })
+      if (locationSearch?.success) {
+        setMostSearchs(locationSearch?.data)
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   useEffect(() => {
     const fetchPropertyDetail = async (id) => {
       try {
@@ -56,68 +128,30 @@ function PropertyDetail() {
         const typeResult = await getPropertyDetail(id);
         if (typeResult?.success) {
           const property = typeResult?.data?.data?.property;
-          const propertyData = typeResult?.data?.data;
+          const data = typeResult?.data?.data;
           if (property) {
-            setPropertyData(propertyData);
+            setPropertyData(data);
             setLoading(false)
-            // Manage Recently Viewed Properties
-            const existingData = JSON.parse(localStorage.getItem("recentViewed")) || [];
-
-            // Check if the property already exists
-            const alreadyExists = existingData.some(
-              (item) => item?.id === property?.property_id
-            );
-
-            if (!alreadyExists) {
-              // Add new property at the start
-              const propertyData = {
-                images: property?.property_images,
-                is_liked: property?.is_liked,
-                title: property?.title,
-                price: property?.price,
-                bedrooms: property?.bedrooms,
-                bathrooms: property?.bathrooms,
-                installments_available: property?.installments_available,
-                property_type_id: property?.property_type_slug === 'sell' ? 1 : property?.property_type_slug === 'rent' ? 2 : property?.property_type_slug === 'lease' ? 3 : 0,
-                city: { name: property?.city },
-                location: { name: property?.location?.name },
-                slug: id,
-                area_size: property?.area_size,
-                unit_area: property?.area_unit_name,
-                id: property?.property_id,
-                active_offer: { label: property?.offer_name },
-                ready_for_possession: property?.ready_for_possession,
-              }
-              const updatedData = [propertyData, ...existingData];
-
-              // Keep only the latest 8
-              if (updatedData.length > 8) {
-                updatedData.pop();
-              }
-
-              localStorage.setItem("recentViewed", JSON.stringify(updatedData));
+            pushRecentlyViewed(property, id);
+            const propertyAmenitiesRes = await getPropertyAmenities(id);
+            const similarPropertiesRes = await getSimilarProperties({ location_id: property?.location?.id, user_id: property?.user_id, property_type_slug: property?.property_type_slug });
+            const userOfPropertyRes = await getUserOfProperty(property?.user_id);
+            if (userOfPropertyRes?.success) {
+              setUserOfProperty(userOfPropertyRes?.data?.data)
             }
-          }
-          const propertyAmenities = await getPropertyAmenities(id);
-          const similarProperties = await getSimilarProperties({ location_id: property?.location?.id, user_id: property?.user_id, property_type_slug: property?.property_type_slug });
-          const userOfProperty = await getUserOfProperty(property?.user_id);
-          if (userOfProperty?.success) {
-            setUserOfProperty(userOfProperty?.data?.data)
-          }
-          if (propertyAmenities?.success) {
-            setPropertyAmenities(propertyAmenities?.data?.data?.categories_with_amenities)
-          }
-          if (similarProperties?.success) {
-            setSimilarProperties(similarProperties?.data?.data)
-          }
-
-          let locationSearch = await getSearchLocation({
-            city_code: property?.city_app_code,
-            location_id: property?.location?.id
-          })
-
-          if (locationSearch?.success) {
-            setMostSearchs(locationSearch?.data)
+            if (propertyAmenitiesRes?.success) {
+              setPropertyAmenities(propertyAmenitiesRes?.data?.data?.categories_with_amenities)
+            }
+            if (similarPropertiesRes?.success) {
+              setSimilarProperties(similarPropertiesRes?.data?.data)
+            }
+            let locationSearch = await getSearchLocation({
+              city_code: property?.city_app_code,
+              location_id: property?.location?.id
+            })
+            if (locationSearch?.success) {
+              setMostSearchs(locationSearch?.data)
+            }
           }
         }
         else if (typeResult?.status === 404) {
@@ -126,13 +160,39 @@ function PropertyDetail() {
 
       } catch (error) {
         console.error("An error occurred while fetching data:", error);
+      } finally {
+        setLoading(false)
       }
     };
 
-    if (params?.slug) {
-      fetchPropertyDetail(params?.slug);
+    if (!slug) return;
+
+    const ssr = ssrPropertyDetail?.slug === slug ? ssrPropertyDetail.initialPropertyData : undefined;
+
+    if (ssr === undefined) {
+      fetchPropertyDetail(slug);
+      return;
     }
-  }, [params?.slug]);
+
+    if (ssr === null) {
+      setPropertyFound(false);
+      setPropertyData(undefined);
+      setLoading(false);
+      return;
+    }
+
+    const property = ssr?.property;
+    if (!property) {
+      setPropertyFound(false);
+      setLoading(false);
+      return;
+    }
+
+    setPropertyData(ssr);
+    setPropertyFound(true);
+    setLoading(false);
+    loadSupplementary(slug, property);
+  }, [slug, ssrPropertyDetail]);
 
   // Track property view for user-logs (time spent + visit count)
   useEffect(() => {
@@ -167,32 +227,15 @@ function PropertyDetail() {
     };
   }, [propertyData?.property?.property_id]);
 
+  const loadingContainerClass = isNarrowViewport ? 'mx-0 mb-0' : 'main-container'
+
   return (
     <div style={{ overflowX: 'hidden' }}>
-      {propertyData?.property && <Head>
-        <title>{propertyData?.property?.title ? `${propertyData.property.title} - Pakistan Property` : 'Pakistan Property'}</title>
-        <meta name="description" content={propertyData?.property?.description || ''} />
-        <meta property="og:image" content={(() => {
-          const img = propertyData?.property?.property_images?.[0];
-          const propertyImage = typeof img === 'string' ? img : (img?.image || img?.url || '');
-          if (propertyImage) return propertyImage;
-          const origin = typeof window !== 'undefined' ? window.location.origin : '';
-          return `${origin}/previewImgae.jpg`;
-        })()} />
-        <meta property="og:title" content={propertyData?.property?.title || 'Pakistan Property'} />
-        <meta property="og:description" content={propertyData?.property?.description || ''} />
-        <meta property="og:url" content={typeof window !== 'undefined' ? window.location.href : ''} />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Pakistan Property" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-      </Head>}
       <div>
 
         <NavBar prevButton={true} />
         {loading ? <div className="secondary-color p-1">
-          <div style={{ minHeight: '100vh' }} className={window?.innerWidth <= 576 ? 'mx-0 mb-0' : 'main-container'}>
+          <div style={{ minHeight: '100vh' }} className={loadingContainerClass}>
             <PageLoading />
           </div>
         </div> :
@@ -260,7 +303,7 @@ function PropertyDetail() {
       <EndUserChat
         open={endUserChatOpen}
         setOpen={setEndUserChatOpen}
-        propertySlug={params?.slug}
+        propertySlug={slug}
         agentId={propertyData?.property?.user_id}
         propertyData={propertyData?.property}
         userOfProperty={userOfProperty}
@@ -269,4 +312,4 @@ function PropertyDetail() {
   )
 }
 
-export default PropertyDetail
+export default PropertyDetailClient

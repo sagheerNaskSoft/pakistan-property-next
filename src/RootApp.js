@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Authprovider } from '@/Context/ContextProvider';
 import App from '@/App';
 
-export default function RootApp() {
+export default function RootApp({ ssrPropertyDetail }) {
   useEffect(() => {
     const onContextMenu = (e) => {
       const link = e.target.closest('a[href]');
@@ -18,7 +18,7 @@ export default function RootApp() {
 
   return (
     <Authprovider>
-      <App />
+      <App ssrPropertyDetail={ssrPropertyDetail} />
     </Authprovider>
   );
 }
