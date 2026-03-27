@@ -1,8 +1,13 @@
-# Next.js on Netlify: do NOT set publish = ".next" — the runtime plugin emits the correct output.
-# See: https://docs.netlify.com/integrations/frameworks/next-js/overview/
+# Next.js + @netlify/plugin-nextjs
+# - Publish directory must NOT equal the site base directory (repo root). If Netlify UI sets
+#   Publish directory to "." or leaves it as the repo root, the plugin errors:
+#   "Your publish directory cannot be the same as the base directory"
+# - Setting publish = ".next" here overrides the UI and matches the Next.js build output.
+#   In Netlify: Site settings → Build & deploy → clear Publish directory OR rely on this file.
 
 [build]
   command = "npm run build"
+  publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
